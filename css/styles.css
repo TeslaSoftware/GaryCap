@@ -1,9 +1,9 @@
 :root{
-    --main-1: #12E096;
-    --main-2: #12423A;
-    --white: #F2FFFF;
-    --grey: #DAEEF2;
-    --blue: #3F9DCC;
+    --main-1: #21D980;
+    --main-2: #144237;
+    --white: #FBFFFF;
+    --grey: #D1E3E8;
+    --blue: #57B3FF;
     
 }
 
@@ -17,6 +17,10 @@ body{
     font-family: 'Maven Pro', sans-serif;
     background-color: var(--white);
     color: var(--main-2);
+}
+
+section>h2{
+    text-align: center;
 }
 
 header{
@@ -51,5 +55,6 @@ header{
     background-image: url("../assets/house2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom;
     min-height: 20rem;
 }

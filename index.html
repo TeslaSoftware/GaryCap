@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>GCI Irrigation Engineering</title>
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Maven+Pro|Titillium+Web|Ubuntu&display=swap" rel="stylesheet">
 
@@ -55,19 +57,122 @@
     </section>
 
     <section id="section-wells-info">
-        wells-info
+        <h2>WELLS & PUMPS</h2>
+        <p>
+            Do you know……
+            <ul>
+            <li>There is a clean, abundant source of water 30 feet below your property</li>
+            <li>Metered water is currently costing you $6.00 per 1000 gallons in SW Nassau county.   $12.00 per 1000 gallons in  Queens (NYCDEP)</li>
+            <li>An automatic lawn sprinkler consumes 60-75% of your summer usage.</li>
+            <li>Systems can use thousands of gallons  each time they operate</li>
+            </ul>    
+            <b>BREAK FREE FROM YOUR WATER METER!</b><br>
+            Install a well/pump system at your home or business. Simple connections to your existing sprinkler system included.
+        </p>
+        <div class="modal-div">
+            ALL ABOUT YOUR SHALLOW WELL INSTALLATION:
+            Our non-invasive method of installing shallow irrigation wells allows placement just about anywhere in the customer yard. A preferred location is close to the tap on an existing system or by a source of electric/controller location for a new installation.
+            A standard well consists of a stainless steel point and 1-1/2” PVC well pipe. We drop this to a depth that will yield the best volume of water. This is found at a level of coarse sand or small gravel.
+            The pump will be a 1 HP Goulds GT series with a check  valve .
+            This system will be able to supply 15-20 GPM at 30 PSI
+        </div>
+        <div class="modal-div">
+            RUST PREVENTION SYSTEMS
+            In areas of high iron (Fe) content in groundwater, RUST PREVENTION SYSTEMS can be installed to mitigate the orange rust stains seen on concrete and fences. A small container and special metering device will inject small quantities of an iron binding compound as the sprinkler system waters. This will bind or hold the iron in its dissolved form (ferrous) and not allow it to oxidize and precipitate out as (Ferric) which causes the rust stains. In most cases, a yearly refill of the compound will suffice for a season’s irrigation.
+        </div>
+
     </section>
 
     <section id="section-calculator">
-        calculator
+        <h2>Water Well Payback Calculator</h2>
+        <div class="water-well-calculator-container">
+            <form id="form-water-calculator">
+                <div>
+                    <label for="number-sprinkler-zones">How many sprinkler zones do you have?</label>
+                    <input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
+                    <span>zones</span> 
+                </div>
+                <div>
+                    <label for="operation-time-spriklers">How long each sprinkler zone operates?</label>
+                    <input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
+                    <span>min</span>    
+                <div>
+                    <label for="how-often-water">How often do you water ?</label>
+                    <select id="how-often-water" name="how_often_do_you_water" >
+                        <option value ="7">Every Day</option>
+                        <option value ="3.5">Every Other Day</option>
+                        <option value ="3" selected>Three Days a Week</option>
+                        <option value ="2">Two Days a Week</option>
+                        <option value ="1">Once a Week</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="property-size">What is you property size?</label>
+                    <select id="property-size" name="property_size">
+                        <!--Value is in GPM - gallons per minute-->
+                        <option value ="10">Average Size Property</option>
+                        <option value ="20">Large Size Property</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="start-month">Watering from </label>
+                    <select id="start-month">
+                        <option value="1">Janaury</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option selected value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select> 
+                    <label for="end-month"> through </label>
+                    <select id="end-month">
+                        <option value="1">Janaury</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option selected value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>    
+                    </select> 
+                </div>
+                <div>
+                    <p>Who is your water supplier ?</p>
+                    <input type="radio" id="water-supplier-choice2" name="water-supplier" value="nyc">
+                    <label for="contactChoice2">NYC DEP </label><span>(New York City)</span>
+                    <input type="radio" id="water-supplier-choice1" checked name="water-supplier" value="nassau">
+                    <label for="contactChoice1">New York American Water </label><span>(Long Island)</span>
+                </div>
+                <div>
+
+                </div>
+                <div>
+                    <button type="submit">Calculate!</button>
+                </div>
+            </form>
+        </div>
     </section>
 
     <section id="section-credentials">
-        credentials
+        <h2>credentials</h2>
     </section>
 
     <section id="section-about-us">
-        about us
+        <h2>ABOUT US</h2>
+        <p>Gary Caparelli has professionally designed, installed and serviced hundreds of lawn sprinkler systems for discerning clients in many of Long Island"s Finest communities. He was among the first on Long Island to obtain professional credentials as a Certified Irrigation Contractor (CIC) from the National Irrigation Association. His expertise in the field ranges from residential and commercial installations to major golf course systems for New York City Department of Parks and Recreation.
+            In 1989, Gary developed a method for installing shallow irrigation wells along the South Shore to supply inexpensive ground water for lawn sprinkler systems. Currently, the company has expanded its operation to include Outdoor Landscape Lighting, Residential Ponds, Water Features, and a first on Long Island, Aquaponic Greenhouse Construction, for growing fresh, organic fruits and vegetables in your backyard.
+           
+           Irrigation and Well/pump systems remain our main focus, but we are proud to offer these other innovative services to all our clients.</p>
     </section>
     <section id="section-contact">
         contact
