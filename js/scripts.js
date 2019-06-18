@@ -44,7 +44,7 @@ function calculateWaterCost(evet){
     //calculate days in a season that user is watering
     let daysInseason =daysInMonthInterval(); 
     let gallonsUsedDaily = zones * operTime * freq * gpm / 7;
-    waterPrice = $("input[name=water-supplier]:checked").val() == "nassau" ? nassauWaterPrice : nycWaterPrice;
+    waterPrice = $("#water-supplier").val() == "nassau" ? nassauWaterPrice : nycWaterPrice;
     let gallonsUsedPerSeason = Math.round(gallonsUsedDaily * daysInseason);
     let seasonalCost =  gallonsUsedPerSeason * waterPrice /1000; //divide by 1000 since waterPrice is per 1000 gallons
     console.log("water price " + $('input[water-supplier]:checked').val());

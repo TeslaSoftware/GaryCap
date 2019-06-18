@@ -90,37 +90,37 @@
         <h2>WATER WELL PAYBACK CALCULATOR</h2>
         <div class="water-well-calculator-container">
             <form id="form-water-calculator">
-                <div>
-                    <label for="number-sprinkler-zones">How many sprinkler zones do you have?</label>
-                    <input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
-                    <span>zones</span> 
+                <div class="calculator-row">
+                    <label class="calculator-column" for="number-sprinkler-zones">How many sprinkler zones do you have?</label>
+                    <span class="calculator-column"><input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
+                    <span>zones</span></span>
                 </div>
-                <div>
-                    <label for="operation-time-spriklers">How long each sprinkler zone operates?</label>
-                    <input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
-                    <span>min</span>    
+                <div class="calculator-row">
+                    <label class="calculator-column"for="operation-time-spriklers">How long each sprinkler zone operates?</label>
+                    <span class="calculator-column"><input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
+                    <span>min</span></span>    
                 </div>
-                <div>
-                    <label for="how-often-water">How often do you water?</label>
-                    <select id="how-often-water" name="how_often_do_you_water" >
+                <div class="calculator-row">
+                    <label class="calculator-column" for="how-often-water">How often do you water?</label>
+                    <span class="calculator-column"><select id="how-often-water" name="how_often_do_you_water" >
                         <option value ="7">Every Day</option>
                         <option value ="3.5">Every Other Day</option>
                         <option value ="3" selected>Three Days a Week</option>
                         <option value ="2">Two Days a Week</option>
                         <option value ="1">Once a Week</option>
-                    </select>
+                    </select></span>
                 </div>
-                <div>
-                    <label for="property-size">What is you property size?</label>
-                    <select id="property-size" name="property_size">
+                <div class="calculator-row">
+                    <label class="calculator-column" for="property-size">What is you property size?</label>
+                    <span class="calculator-column"><select id="property-size" name="property_size">
                         <!--Value is in GPM - gallons per minute-->
                         <option value ="10">Average Size Property</option>
                         <option value ="20">Large Size Property</option>
-                    </select>
+                    </select></span>
                 </div>
-                <div>
-                    <label for="start-month">Watering from </label>
-                    <select id="start-month">
+                <div class="calculator-row">
+                    <label class="calculator-column" for="start-month">Watering season </label>
+                    <span class="calculator-column"><select id="start-month">
                         <option value="1">Janaury</option>
                         <option value="2">February</option>
                         <option value="3">March</option>
@@ -148,20 +148,17 @@
                         <option value="10">October</option>
                         <option value="11">November</option>
                         <option value="12">December</option>    
-                    </select> 
+                    </select> </n>
                 </div>
-                <div>
-                    <p>Who is your water supplier ?</p>
-                    <input type="radio" id="water-supplier-choice2" name="water-supplier" value="nyc">
-                    <label for="contactChoice2">NYC DEP </label><span>(New York City)</span>
-                    <input type="radio" id="water-supplier-choice1" checked name="water-supplier" value="nassau">
-                    <label for="contactChoice1">New York American Water </label><span>(Long Island)</span>
+                <div class="calculator-row">
+                    <label class="calculator-column" for="water-supplier">Who is your water supplier ?</label>
+                    <span class="calculator-column"><select id="water-supplier" >
+                        <option value="nyc">NYC DEP (New York City)</option>
+                        <option value="nassau">New York American Water (Long Island)</option>
+                    </select></span>
                 </div>
-                <div>
-
-                </div>
-                <div>
-                    <button type="submit">Calculate!</button>
+                <div class="calculator-row">
+                    <button type="submit">CALCULATE MY SAVINGS!</button>
                 </div>
             </form>
         </div>
