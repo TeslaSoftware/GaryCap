@@ -2,13 +2,20 @@ var startMonth=5;
 var endMonth=9;
 var waterPrice=0; //per 1000 gallons
 
+//class specific variables
+var hideNavClass = "hideNav" ;
+var showNavClass = "showNav" ;
+
 //prices for water as of 5/27/2019, price per 1000 gallons
 var nycWaterPrice = (10.10 / 748) *1000;
 var nassauWaterPrice = 10;
 
 $(document).ready(function(){
+    //initialize
     setStartMonth();
     setEndMonth();
+
+    //add event listeners
     $("#start-month").on("change", function(){ setStartMonth()});
     $("#end-month").on("change", function(){ setEndMonth() });
     $("#form-water-calculator").submit( function(event){
@@ -16,6 +23,7 @@ $(document).ready(function(){
         console.log("Form Submitted! Time stamp: "+ event.timeStamp);
         calculateWaterCost()
     });
+    $("#hamburger-menu").on("click",function(){toggleNav()});
 });
 
 function setStartMonth(){
@@ -58,4 +66,18 @@ function daysInMonthInterval(){
         result += new Date(2019,i,0).getDate();
     }
     return result;
+}
+
+function toggleNav(){
+    var nav = $("#top-nav");
+    if (nav.hasClass("showNav")){
+        //hide nav
+        nav.removeClass(showNavClass).addClass(hideNavClass);
+        console.log("hiding nav bar");
+    }
+    else{
+        //show nav
+        nav.removeClass(hideNavClass).addClass(showNavClass);
+        console.log("showing navbar");
+    }
 }

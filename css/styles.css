@@ -19,6 +19,14 @@ body{
     color: var(--main-2);
 }
 
+.hideNav{
+    transform: translateY(-15rem);
+}
+
+.showNav{
+    transform: translateY(0);
+}
+
 section{
     padding: 2rem;
 }
@@ -29,23 +37,65 @@ section>h2{
 }
 
 header{
-    display: sticky;   
-    text-align: center;
+    position: fixed;   
     background-color: var(--main-1);
     color: var(--white);
-    position: fixed;
     width: 100%;
+    z-index: 9;
+}
+
+#hamburger-menu{
+    position: absolute;
+    margin: 1.6rem;
+    top:0;
+    right:0;
+    color: var(--white);
+    background-color: var(--main-1);
+    border: 3px solid var(--white);
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    z-index:10;
+}
+
+#hamburger-menu:hover{
+    cursor: pointer;
+}
+
+#hamburger-menu>i{
+    font-size: 1.5rem;
+}
+
+#hamburger-menu:active, #hamburger-menu:focus{
+    outline: none;
 }
 
 #brand{
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 1rem;
     text-shadow: 3px 3px 6px var(--main-2); 
     font-family: 'Libre Baskerville', serif; 
+    background-color: var(--main-1);
+    border-bottom: 3px solid var(--grey);
+}
+
+#brand-name{
+    text-align: left;
+}
+
+#motto{
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 3px var(--main-2);
 }
 
 #top-nav{
     background-color: var(--blue);
+    position: fixed;
+    width: 100%;    
+    z-index: -1;
+    transition: transform 1s ease-out;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid var(--grey);
+    opacity: 0.95
 }
 
 #top-nav ul{
@@ -53,9 +103,15 @@ header{
 }
 
 #top-nav li{
-    display: inline-block;
+    display: block;
+    text-align: left;
     padding: 0.5rem;
     text-shadow: 2px 2px 2px var(--main-2); 
+}
+
+nav a{
+    color: var(--white);
+    text-decoration: none;
 }
 
 #section-frontyard-pic{
@@ -165,6 +221,7 @@ header{
 #section-contact{
     background-color: var(--main-1);
     text-align: center;
+    min-height: 20vh;
 }
 
 .contact-container{
