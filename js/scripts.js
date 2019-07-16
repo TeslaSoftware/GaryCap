@@ -24,6 +24,11 @@ $(document).ready(function(){
         calculateWaterCost()
     });
     $("#hamburger-menu").on("click",function(){toggleNav()});
+    $("#top-nav a").on("click", function(){toggleNav()});
+
+    //smooth scroll
+    $('a[href*="#"]').on('click',function(e){smoothScroll(e)})
+
 });
 
 function setStartMonth(){
@@ -80,4 +85,61 @@ function toggleNav(){
         nav.removeClass(hideNavClass).addClass(showNavClass);
         console.log("showing navbar");
     }
+}
+
+/*Detect if browser used by user is IE*/
+function isIE() {
+    let ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+}
+
+//smooth scroll listener adjusted for target
+function scrollToTargetAdjusted(event){
+    event.preventDefault();
+    var element = document.getElementById(event.target.hash.replace("#",""));
+    var headerOffset = $("header").outerHeight();
+    var startPosition = window.pageYOffset;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition - headerOffset;
+    var duration = distance * 10;
+
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
+}
+
+
+//beautiful smooth scroll with offset for header/navbar
+function smoothScroll(event){
+    var startPosition = window.pageYOffset
+    var destination = document.getElementById(event.target.hash.replace("#",""));
+    var targetPosition = destination.getBoundingClientRect().top;
+    var headerOffset = document.querySelector("header").offsetHeight;
+    //duration is equivalent to distance traveled which is absolute value of target position (it could be negative!)
+    var duration = Math.abs(targetPosition);
+    var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+    var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+    var destinationOffset = destination.offsetTop-headerOffset;
+    var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+
+    function scroll() {
+        var now = 'now' in window.performance ? performance.now() : new Date().getTime();
+        var time = Math.min(1, ((now - startTime) / duration));
+        var timeFunction = easeInFunction(time);
+        window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
+        //stop recursive calls when you reach your destination
+        if (window.pageYOffset === destinationOffsetToScroll) {  return; }
+        //recursive call
+        requestAnimationFrame(scroll);
+    }
+
+    scroll();
+}
+
+//easeInOutQuad
+function easeInFunction(t){
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 }

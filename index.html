@@ -96,71 +96,73 @@
         <div class="water-well-calculator-container">
             <form id="form-water-calculator">
                 <div class="calculator-row">
-                    <label class="calculator-column" for="number-sprinkler-zones">How many sprinkler zones do you have?</label>
-                    <span class="calculator-column"><input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
-                    <span>zones</span></span>
+                    <div class="calculator-column"><label for="number-sprinkler-zones">How many sprinkler zones do you have?</label></div>
+                    <div class="calculator-column"><input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
+                    <span>zones</span></div>
                 </div>
                 <div class="calculator-row">
-                    <label class="calculator-column"for="operation-time-spriklers">How long each sprinkler zone operates?</label>
-                    <span class="calculator-column"><input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
-                    <span>min</span></span>    
+                    <div class="calculator-column"><label for="operation-time-spriklers">How long each sprinkler zone operates?</label></div>
+                    <div class="calculator-column"><input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
+                    <span>min</span></div>    
                 </div>
                 <div class="calculator-row">
-                    <label class="calculator-column" for="how-often-water">How often do you water?</label>
-                    <span class="calculator-column"><select id="how-often-water" name="how_often_do_you_water" >
+                    <div class="calculator-column"><label for="how-often-water">How often do you water?</label></div>
+                    <div class="calculator-column"><select id="how-often-water" name="how_often_do_you_water" >
                         <option value ="7">Every Day</option>
                         <option value ="3.5">Every Other Day</option>
                         <option value ="3" selected>Three Days a Week</option>
                         <option value ="2">Two Days a Week</option>
                         <option value ="1">Once a Week</option>
-                    </select></span>
+                    </select></div>
                 </div>
                 <div class="calculator-row">
-                    <label class="calculator-column" for="property-size">What is you property size?</label>
-                    <span class="calculator-column"><select id="property-size" name="property_size">
+                    <div class="calculator-column"><label for="property-size">What is you property size?</label></div>
+                    <div class="calculator-column"><select id="property-size" name="property_size">
                         <!--Value is in GPM - gallons per minute-->
                         <option value ="10">Average Size Property</option>
                         <option value ="20">Large Size Property</option>
-                    </select></span>
+                    </select></div>
                 </div>
                 <div class="calculator-row">
-                    <label class="calculator-column" for="start-month">Watering season </label>
-                    <span class="calculator-column"><select id="start-month">
-                        <option value="1">Janaury</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option selected value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select> 
-                    <label for="end-month"> through </label>
-                    <select id="end-month">
-                        <option value="1">Janaury</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option selected value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>    
-                    </select> </n>
+                    <div class="calculator-column"><label for="start-month">Watering season </label></div>
+                    <div class="calculator-column">
+                        <select id="start-month">
+                            <option value="1">Janaury</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option selected value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select> 
+                        <label for="end-month"> through </label>
+                        <select id="end-month">
+                            <option value="1">Janaury</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option selected value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>    
+                        </select> 
+                    </div>
                 </div>
                 <div class="calculator-row">
-                    <label class="calculator-column" for="water-supplier">Who is your water supplier ?</label>
-                    <span class="calculator-column"><select id="water-supplier" >
+                    <div class="calculator-column"><label for="water-supplier">Who is your water supplier ?</label></div>
+                    <div class="calculator-column"><select id="water-supplier" >
                         <option value="nyc">NYC DEP (New York City)</option>
                         <option value="nassau">New York American Water (Long Island)</option>
-                    </select></span>
+                    </select></div>
                 </div>
                 <div class="calculator-row">
                     <button type="submit">CALCULATE MY SAVINGS!</button>

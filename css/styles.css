@@ -4,7 +4,6 @@
     --white: #FBFFFF;
     --grey: #D1E3E8;
     --blue: #57B3FF;
-    
 }
 
 img{
@@ -55,6 +54,9 @@ header{
     padding: 0.3rem;
     border-radius: 0.5rem;
     z-index:10;
+    transition: 0.3s;
+    box-shadow: 2px 2px 6px 0px var(--main-2);
+    text-shadow: 1px 1px  var(--main-2);
 }
 
 #hamburger-menu:hover{
@@ -66,7 +68,12 @@ header{
 }
 
 #hamburger-menu:active, #hamburger-menu:focus{
-    outline: none;
+    outline: none;    
+}
+
+#hamburger-menu:active{
+    transform: translate(2px, 2px);
+    box-shadow: none;
 }
 
 #brand{
@@ -126,11 +133,10 @@ nav a{
     font-size: 1.2rem;
 }
 
-.water-well-calculator-container, #form-water-calculator div{
-    margin: 2rem 0;
-}
+
 .calculator-row{
     text-align: center;
+    margin: 2rem 0;
 }
 
 .calculator-row:after{
@@ -139,9 +145,7 @@ nav a{
     display: table;
 }
 
-.calculator-column {
-    float: left;
-    width: 50%;    
+.calculator-column { 
     text-align: left;
 }
 
@@ -149,7 +153,7 @@ nav a{
 #form-water-calculator input,#form-water-calculator select, #form-water-calculator option {
     border: none;
     font-size: 1.2rem;
-    border: 3px solid var(--blue);
+    border: 3px solid var(--grey);
     text-align: right;
     cursor: pointer; 
     max-width: 100%;
@@ -191,9 +195,9 @@ nav a{
     border-radius: 0.3rem;    
     padding: 0.5rem;
     font-weight: bold;
-    box-shadow: 3px 3px 12px -3px var(--blue);
+    box-shadow: 3px 3px 12px 0px var(--blue);
     text-align: center;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 #form-water-calculator button:hover{
