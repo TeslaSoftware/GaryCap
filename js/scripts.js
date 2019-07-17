@@ -78,12 +78,10 @@ function toggleNav(){
     if (nav.hasClass("showNav")){
         //hide nav
         nav.removeClass(showNavClass).addClass(hideNavClass);
-        console.log("hiding nav bar");
     }
     else{
         //show nav
         nav.removeClass(hideNavClass).addClass(showNavClass);
-        console.log("showing navbar");
     }
 }
 
@@ -94,24 +92,7 @@ function isIE() {
     return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
 }
 
-//smooth scroll listener adjusted for target
-function scrollToTargetAdjusted(event){
-    event.preventDefault();
-    var element = document.getElementById(event.target.hash.replace("#",""));
-    var headerOffset = $("header").outerHeight();
-    var startPosition = window.pageYOffset;
-    var elementPosition = element.getBoundingClientRect().top;
-    var offsetPosition = elementPosition - headerOffset;
-    var duration = distance * 10;
-
-    window.scrollTo({
-         top: offsetPosition,
-         behavior: "smooth"
-    });
-}
-
-
-//beautiful smooth scroll with offset for header/navbar
+//beautiful smooth scroll with offset for header/navbar -> compatible with IE and old browsers
 function smoothScroll(event){
     var startPosition = window.pageYOffset
     var destination = document.getElementById(event.target.hash.replace("#",""));
