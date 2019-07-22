@@ -1,3 +1,42 @@
+@keyframes modalShowUp {
+    0% {
+        transform: scale(0); 
+    }
+    50% {
+        transform: scale(0); 
+    }
+    100% {
+        transform: scale(1); 
+    }
+}
+  
+@keyframes backgroundShowUp{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+} 
+
+@keyframes modalButtonShowUp{
+    0%{
+        opacity: 0;
+        transform:scale(200);
+    }
+
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+  
+
+
 :root{
     --main-1: #21D980;
     --main-2: #144237;
@@ -196,21 +235,20 @@ nav a{
     font-size: 1.2rem;
     background-color: var(--blue);
     color: var(--white);
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid var( --main-2);
     border-radius: 0.3rem;    
     padding: 0.5rem;
     font-weight: bold;
-    box-shadow: 3px 3px 12px 0px var(--blue);
+    box-shadow: 3px 3px 6px 0px var( --main-2);
     text-align: center;
     transition: 0.2s;
     margin: 1rem 0;
+    text-shadow: 2px 2px 8px var(--main-2);
 }
 
 #form-water-calculator button:hover{
     cursor: pointer;
-    background-color: var(--main-1);
-    box-shadow: 3px 3px 12px 0px var(--main-2);
-    
+    background-color: var(--main-1);    
 }
 
 #form-water-calculator button:focus{
@@ -234,6 +272,7 @@ nav a{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    animation: backgroundShowUp 0.5s;
 }
 
 .modal-content {
@@ -243,8 +282,9 @@ nav a{
     padding: 0;
     border: 1px solid var(--main-2);
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 12px 1px rgba(0,0,0,0.4), 0 8px 24px 2px rgba(0,0,0,0.2);
     font-size: 1.2rem;
+    animation: modalShowUp 1.5s;
 }
 
 .modal-header {      
@@ -280,6 +320,7 @@ nav a{
 
 .calculator-results-row{
     padding:0.5rem 0 ;
+    width: 100%;
 }
 
 .calculator-results-key{
@@ -287,6 +328,39 @@ nav a{
 }
 
 .calculator-results-value{
+    display: inline-block;
+}
+
+.modal-box-button-outer-div{
+    display: inline-block;
+    box-shadow: 3px 3px 9px 1px var( --main-2);
+    border: 1px solid var(--main-2);
+    border-radius: 0.5rem;
+    background-color: var(--blue);
+    margin: 0.5rem;
+    animation: modalButtonShowUp 5s;
+}
+
+.modal-box-button-outer-div a{
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px var(--main-2);
+}
+
+.modal-box-button-outer-div:active{
+    outline: none;
+}
+
+.modal-box-button-outer-div:active{
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 3px 1px var(--main-2);
+}
+
+.modal-box-button-inner-div{    
+    padding: 1rem;
     display: inline-block;
 }
 
@@ -332,4 +406,11 @@ footer{
     color: var(--grey);
     text-align: center;
     font-size: 1rem;
+}
+
+/*Special handling for small devices with not enough vertical realestate*/
+@media only screen and (max-height: 600px) {
+    .modal-box-button-outer-div {
+      margin-bottom: 5rem;
+    }
 }
