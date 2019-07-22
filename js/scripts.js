@@ -21,10 +21,12 @@ $(document).ready(function(){
     $("#form-water-calculator").submit( function(event){
         event.preventDefault();
         console.log("Form Submitted! Time stamp: "+ event.timeStamp);
-        calculateWaterCost()
+        calculateWaterCost(event, displayCalculatorResults);
     });
     $("#hamburger-menu").on("click",function(){toggleNav()});
     $("#top-nav a").on("click", function(){toggleNav()});
+    //handle closing modal boxes
+    $(".close-action").on("click", function(e){ handleClosingModalBoxes(e)});
 
     //smooth scroll
     $('a[href*="#"]').on('click',function(e){smoothScroll(e)})
@@ -47,22 +49,33 @@ function setEndMonth(){
     }
 }
 
-function calculateWaterCost(evet){
+function calculateWaterCost(event, callbackFunction){
     //setup missing variables
     let zones = parseInt($("#number-sprinkler-zones").val());
     let operTime = parseInt($("#operation-time-spriklers").val());
     let freq = parseFloat($("#how-often-water").val());
     let gpm = parseInt($("#property-size").val());
-    let result = 0;
+    //add one to months because even from June to June it is considered one full month and from June to July its two months not one
+    let monthsInASeason = endMonth - startMonth +1;
     //calculate days in a season that user is watering
     let daysInseason =daysInMonthInterval(); 
     let gallonsUsedDaily = zones * operTime * freq * gpm / 7;
     waterPrice = $("#water-supplier").val() == "nassau" ? nassauWaterPrice : nycWaterPrice;
     let gallonsUsedPerSeason = Math.round(gallonsUsedDaily * daysInseason);
     let seasonalCost =  gallonsUsedPerSeason * waterPrice /1000; //divide by 1000 since waterPrice is per 1000 gallons
-    console.log("water price " + $('input[water-supplier]:checked').val());
+    console.log("water price " + waterPrice);
     console.log("zones: " + zones + ", operTime: "+ operTime + ", freq: " +freq + ", gpm: " + gpm + ", daysInSeason: " + daysInseason);
     console.log("gallonsUsedDaily is " + gallonsUsedDaily +", waterPrice: " + waterPrice + ", gallonsUsedPerSeason: " + gallonsUsedPerSeason + ", seasonalCost: " + seasonalCost);
+    //set calculator results
+    let monthlyCost = seasonalCost / monthsInASeason;
+    $("#calculator-results-monthly-cost").text("$" + monthlyCost.toFixed(2));
+    $("#calculator-results-seasonal-cost").text("$" + seasonalCost.toFixed(2));
+    //calculate return of investment - avg price for water well is $2600
+    let ROIYears = 2600 / seasonalCost;
+    let ROIValue = "between " + Math.floor(ROIYears) +" to "+ Math.ceil(ROIYears) + " years.";
+    $("#calculator-results-ROI").text(ROIValue);
+    console.log("ROI in years is : " + ROIValue);
+    callbackFunction();
 }
 
 function daysInMonthInterval(){
@@ -123,4 +136,14 @@ function smoothScroll(event){
 //easeInOutQuad
 function easeInFunction(t){
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+//This function handles closing modal boxes
+function handleClosingModalBoxes(event){
+    $(event.target).closest(".modal-box").hide();
+}
+
+function displayCalculatorResults(){
+    console.log("about to display calculator results");
+    $("#calculator-results").show();
 }

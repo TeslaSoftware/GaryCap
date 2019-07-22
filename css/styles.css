@@ -222,10 +222,73 @@ nav a{
     box-shadow: 0 0 3px 1px var(--main-2);
 }
 
+.modal-box {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 15; /* Sit on top */
+    padding-top: 5rem; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+.modal-content {
+    position: relative;
+    background-color: var(--white);
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--main-2);
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    font-size: 1.2rem;
+}
 
+.modal-header {      
+    flex-direction: column;
+    padding: 0.01rem 1rem;
+    background-color: var(--main-1);
+    color: var(--white);
+    border-bottom: 3px solid var(--grey);
+    text-shadow: 2px 2px 8px var(--main-2); 
+}
+  
 
+.close-action {
+    color: var(--white);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+    transition: 1s;
+}
 
+.close-action:hover{
+    transform: scale(1.2);
+}
+  
+.modal-body{
+    padding: 1rem;
+}
+
+.modal-body-small-font{
+    font-size: 0.8rem;
+}
+
+.calculator-results-row{
+    padding:0.5rem 0 ;
+}
+
+.calculator-results-key{
+    display: inline-block;
+}
+
+.calculator-results-value{
+    display: inline-block;
+}
 
 
 #section-contact{
