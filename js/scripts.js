@@ -118,14 +118,17 @@ function smoothScroll(event){
     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
     var destinationOffset = destination.offsetTop-headerOffset;
     var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+    var timeoutVal = 5500; //in ms, so 5000 = 5s
+    var timeout = 'now' in window.performance ? performance.now() + timeoutVal : new Date().getTime() + timeoutVal;
 
     function scroll() {
         var now = 'now' in window.performance ? performance.now() : new Date().getTime();
         var time = Math.min(1, ((now - startTime) / duration));
         var timeFunction = easeInFunction(time);
         window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
+        console.log("current offset of window is: "+window.pageYOffset +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
         //stop recursive calls when you reach your destination
-        if (window.pageYOffset === destinationOffsetToScroll) {  return; }
+        if (window.pageYOffset === destinationOffsetToScroll || now > timeout) {  return; }
         //recursive call
         requestAnimationFrame(scroll);
     }
