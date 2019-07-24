@@ -29,7 +29,7 @@ $(document).ready(function(){
     $(".close-action").on("click", function(e){ handleClosingModalBoxes(e)});
 
     //smooth scroll
-    $('a[href*="#"]').on('click',function(e){smoothScroll(e)})
+    $('#top-nav a[href*="#"]').on('click',function(e){smoothScroll(e)})
 
 });
 
