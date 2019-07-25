@@ -212,6 +212,39 @@ nav a:hover{
     animation: glowBlue 5s ease-in-out infinite;
 }
 
+.more-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.more-info>button{
+    margin: 1rem;    
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: var(--white);
+    background-color: var(--blue);
+    box-shadow: 3px 3px 9px 2px var( --main-2);
+    width: 14rem;
+    font-size: 1.1rem;
+}
+
+.more-info>button:hover{
+    cursor: pointer;    
+    transform: scale(1.05);
+    text-shadow: 0px 0px 1px var(--white);
+}
+
+.more-info>button:focus{
+    outline: none;
+}
+
+.more-info>button:active{
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 3px 1px var(--main-2);
+}
+
 #section-calculator{
     background-color: var(--blue);
     color: var(--white);
@@ -246,7 +279,6 @@ nav a:hover{
 #form-water-calculator input, #form-water-calculator select, #form-water-calculator option {
     border: none;
     font-size: 1.2rem;
-    border: 3px solid var(--grey);
     text-align: right;
     cursor: pointer; 
     width: 100%;
@@ -254,6 +286,7 @@ nav a:hover{
     font-family: 'Maven Pro', sans-serif;
     color: var(--main-2);
     background-color: var(--white);
+    padding: 0.5rem;
 }
 
 #form-water-calculator option:hover, #form-water-calculator option:focus{
@@ -285,9 +318,9 @@ nav a:hover{
     font-size: 1.2rem;
     background-color: var(--main-1);
     color: var(--white);
-    border: 3px solid var( --grey);
-    border-radius: 0.5rem;    
-    padding: 0.5rem;
+    border: none;
+    border-radius: 3rem;    
+    padding: 1rem;
     font-weight: bold;
     box-shadow: 3px 3px 9px 2px var( --main-2);
     text-align: center;
@@ -393,8 +426,7 @@ nav a:hover{
 .modal-box-button-outer-div{
     display: inline-block;
     box-shadow: 4px 4px 8px 5px rgba(0,0,0,0.5);
-    border: 3px solid var( --grey);
-    border-radius: 0.5rem;
+    border-radius: 3rem;
     background-color: var(--blue);
     margin: 0.5rem;
     opacity: 0.9;
