@@ -371,7 +371,7 @@ nav a:hover{
     padding: 0;
     border: 1px solid var(--main-2);
     width: 80%;
-    box-shadow: 0 4px 12px 1px rgba(0,0,0,0.4), 0 8px 24px 2px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 12px 1px rgba(0,0,0,0.4), 8px 8px 24px 2px rgba(0,0,0,0.2);
     font-size: 1.2rem;
     animation: modalShowUp 1.5s;
 }
@@ -402,7 +402,7 @@ nav a:hover{
   
 .modal-body{
     padding: 1rem;
-    max-height: calc(75vh - 5rem);
+    max-height: calc(80vh - 8rem);
     overflow-y: auto
 }
 

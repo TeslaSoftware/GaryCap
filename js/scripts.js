@@ -25,6 +25,9 @@ $(document).ready(function(){
     });
     $("#hamburger-menu").on("click",function(){toggleNav()});
     $("#top-nav a").on("click", function(){toggleNav()});
+    //handle modal boxes opening
+    $(".more-info button").on("click", function(e){ handleMoreInfoModal(e) });
+    
     //handle closing modal boxes
     $(".close-action").on("click", function(e){ handleClosingModalBoxes(e)});
 
@@ -149,4 +152,9 @@ function handleClosingModalBoxes(event){
 function displayCalculatorResults(){
     console.log("about to display calculator results");
     $("#calculator-results").show();
+}
+
+function handleMoreInfoModal(e){
+    var targetID = e.target.id.replace("btn","#modal");
+    $(targetID).show();
 }
