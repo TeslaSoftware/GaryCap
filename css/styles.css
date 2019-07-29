@@ -60,11 +60,16 @@
     --blue: #57B3FF;
 }
 
+html{
+    height: 100%;
+}
+
 img{
     max-width: 100%;
 }
 
 body{
+    height: 100%;
     padding:0;
     margin:0;
     font-family: 'Maven Pro', sans-serif;
@@ -365,12 +370,15 @@ nav a:hover{
 }
 
 .modal-content {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: 80%;
+    width: 80%;
     background-color: var(--white);
     margin: auto;
     padding: 0;
     border: 1px solid var(--main-2);
-    width: 80%;
     box-shadow: 4px 4px 12px 1px rgba(0,0,0,0.4), 8px 8px 24px 2px rgba(0,0,0,0.2);
     font-size: 1.2rem;
     animation: modalShowUp 1.5s;
@@ -402,7 +410,7 @@ nav a:hover{
   
 .modal-body{
     padding: 1rem;
-    max-height: calc(80vh - 8rem);
+    max-height: calc(70vh - 6rem);
     overflow-y: auto
 }
 
