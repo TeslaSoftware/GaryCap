@@ -129,9 +129,10 @@ function smoothScroll(event){
         var time = Math.min(1, ((now - startTime) / duration));
         var timeFunction = easeInFunction(time);
         window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
-        console.log("current offset of window is: "+window.pageYOffset +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
+        var offsetFromTop = Math.ceil(window.pageYOffset);
+        console.log("current offset of window is: "+offsetFromTop +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
         //stop recursive calls when you reach your destination
-        if (window.pageYOffset === destinationOffsetToScroll || now > timeout) {  return; }
+        if (offsetFromTop === destinationOffsetToScroll || now > timeout) {  return; }
         //recursive call
         requestAnimationFrame(scroll);
     }
