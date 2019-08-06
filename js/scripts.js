@@ -34,6 +34,8 @@ $(document).ready(function(){
     //smooth scroll
     $('#top-nav a[href*="#"]').on('click',function(e){smoothScroll(e)})
 
+    //initialize slider for credentials
+    jssor_1_slider_init();
 });
 
 function setStartMonth(){
@@ -129,10 +131,9 @@ function smoothScroll(event){
         var time = Math.min(1, ((now - startTime) / duration));
         var timeFunction = easeInFunction(time);
         window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
-        var offsetFromTop = Math.ceil(window.pageYOffset);
-        console.log("current offset of window is: "+offsetFromTop +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
+        console.log("current offset of window is: "+Math.ceil(window.pageYOffset) +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
         //stop recursive calls when you reach your destination
-        if (offsetFromTop === destinationOffsetToScroll || now > timeout) {  return; }
+        if (Math.ceil(window.pageYOffset) === destinationOffsetToScroll || now > timeout) {  return; }
         //recursive call
         requestAnimationFrame(scroll);
     }
