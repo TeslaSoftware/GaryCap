@@ -124,4 +124,6 @@ function displayModalImage(slideIndex){
     $("#modal-image-container").show();
     //pause animation
     jssor_1_slider.$Pause();
+    //disable scrolling of body
+    $("body").css("overflow", "hidden");
 }

@@ -152,6 +152,8 @@ function handleClosingModalBoxes(event){
     console.debug("trying to close modal box");
     //resume playing animation
     jssor_1_slider.$Play();
+    //enable scrolling of body
+    $("body").css("overflow", "visible");
 }
 
 function displayCalculatorResults(){
@@ -164,4 +166,6 @@ function handleMoreInfoModal(e){
     $(targetID).show();
     //pause animation
     jssor_1_slider.$Pause();
+    //disable scrolling of body
+    $("body").css("overflow", "hidden");
 }
