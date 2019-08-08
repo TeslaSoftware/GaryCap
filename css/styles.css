@@ -488,7 +488,7 @@ nav a:hover{
     visibility:hidden;
 }
 
-.slides{
+.slides-container{
     cursor:default;
     position:relative;
     top:0px;
@@ -550,6 +550,66 @@ nav a:hover{
 .jssora073:hover {opacity:.8;}
 .jssora073.jssora073dn {opacity:.4;}
 .jssora073.jssora073ds {opacity:.3;pointer-events:none;}
+
+#modal-image-container{    
+    display: none;
+}
+
+#modal-image-background{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index:15;
+    text-align: center;
+}
+
+
+.close-img-action {
+    color: var(--white);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: 1s;
+    position: relative;
+    top: 1vmin;
+    right: 2vmin;
+}
+
+.close-img-action:hover{
+    transform: scale(1.2);
+    cursor: pointer; 
+}
+
+#img-modal-image{    
+    position: absolute;
+    max-width: 80vw;
+    max-height: 80vh;
+    overflow: auto;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin: auto;
+    animation: modalShowUp 1.5s;
+}
+
+.modal-image-footer{
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7vh;
+    line-height: 7vh; /*To vertically center with absolute position*/
+    color: var(--white);
+}
+
+
+#section-about-us p{
+    text-align: justify;
+}
 
 #section-contact{
     background-color: var(--main-1);

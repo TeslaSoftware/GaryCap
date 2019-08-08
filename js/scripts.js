@@ -30,6 +30,7 @@ $(document).ready(function(){
     
     //handle closing modal boxes
     $(".close-action").on("click", function(e){ handleClosingModalBoxes(e)});
+    $(".close-img-action").on("click", function(e){ handleClosingModalBoxes(e)});
 
     //smooth scroll
     $('#top-nav a[href*="#"]').on('click',function(e){smoothScroll(e)})
@@ -137,7 +138,6 @@ function smoothScroll(event){
         //recursive call
         requestAnimationFrame(scroll);
     }
-
     scroll();
 }
 
@@ -149,6 +149,9 @@ function easeInFunction(t){
 //This function handles closing modal boxes
 function handleClosingModalBoxes(event){
     $(event.target).closest(".modal-box").hide();
+    console.debug("trying to close modal box");
+    //resume playing animation
+    jssor_1_slider.$Play();
 }
 
 function displayCalculatorResults(){
@@ -159,4 +162,6 @@ function displayCalculatorResults(){
 function handleMoreInfoModal(e){
     var targetID = e.target.id.replace("btn","#modal");
     $(targetID).show();
+    //pause animation
+    jssor_1_slider.$Pause();
 }

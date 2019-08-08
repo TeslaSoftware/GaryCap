@@ -1,19 +1,21 @@
+var jssor_1_slider;
+
 jssor_1_slider_init = function() {
 
     var jssor_1_SlideshowTransitions = [
-      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,y:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,y:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InQuad},
-      {$Duration:1400,y:1,$Opacity:2,$Easing:$Jease$.$InQuad}
+      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InOutCubic},
+      {$Duration:1400,x:-1,$Opacity:2,$Easing:$Jease$.$InOutCubic},
+      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InOutCubic},
+      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InOutCubic},
+      {$Duration:1400,y:1,$Opacity:2,$Easing:$Jease$.$InOutQuad},
+      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InOutQuad},
+      {$Duration:1400,x:1,$Opacity:2,$Easing:$Jease$.$InOutQuad},
+      {$Duration:1400,y:1,$Opacity:2,$Easing:$Jease$.$InOutQuad}
     ];
 
     var jssor_1_options = {
       $AutoPlay: 1,
-      $SlideDuration: 2000,
+      $SlideDuration: 1400,
       $SlideEasing: $Jease$.$InOutCubic,
       $FillMode: 3,
       $LazyLoading: 1,
@@ -34,7 +36,7 @@ jssor_1_slider_init = function() {
       }
     };
 
-    var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+    jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
     //make sure to clear margin of the slider container element
     jssor_1_slider.$Elmt.style.margin = "";
@@ -104,4 +106,22 @@ jssor_1_slider_init = function() {
     $Jssor$.$AddEvent(window, "resize", ScaleSlider);
     $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
     /*#endregion responsive code end*/
+
+    /*custom code*/
+    /*attach click listener to slide*/
+    jssor_1_slider.$On($JssorSlider$.$EVT_CLICK, displayModalImage);
+
+}
+
+function displayModalImage(slideIndex){
+    console.log("slide clicked. Index #" + slideIndex);
+    //get image src path and description
+    var src = $(".slides-container img").eq(slideIndex).attr("src");
+    var description = $(".slide-img-description").eq(slideIndex).text();
+    //set it to modal box and show modal box
+    $("#img-modal-image").attr("src",src);
+    $("#modal-image-background .modal-image-footer").text(description);
+    $("#modal-image-container").show();
+    //pause animation
+    jssor_1_slider.$Pause();
 }
