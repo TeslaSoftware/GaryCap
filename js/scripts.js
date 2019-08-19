@@ -9,11 +9,16 @@ var showNavClass = "showNav" ;
 //prices for water as of 5/27/2019, price per 1000 gallons
 var nycWaterPrice = (10.10 / 748) *1000;
 var nassauWaterPrice = 10;
+var headerHeight;
 
 $(document).ready(function(){
+    console.log("Document is ready");
     //initialize
     setStartMonth();
     setEndMonth();
+    headerHeight = $("header").height();
+    //refresh value of headerHeight
+    setTimeout(function(){ headerHeight= $("header").height(); }, 1000);
 
     //add event listeners
     $("#start-month").on("change", function(){ setStartMonth()});
@@ -37,6 +42,10 @@ $(document).ready(function(){
 
     //initialize slider for credentials
     jssor_1_slider_init();
+
+    handleSingleParallaxElement($("#parallax-image-frontyard"), 0.5);
+    handleSingleParallaxElement($("#parallax-image-pump"), 0.3);
+    
 });
 
 function setStartMonth(){
@@ -69,10 +78,7 @@ function calculateWaterCost(event, callbackFunction){
     waterPrice = $("#water-supplier").val() == "nassau" ? nassauWaterPrice : nycWaterPrice;
     let gallonsUsedPerSeason = Math.round(gallonsUsedDaily * daysInseason);
     let seasonalCost =  gallonsUsedPerSeason * waterPrice /1000; //divide by 1000 since waterPrice is per 1000 gallons
-    console.log("water price " + waterPrice);
-    console.log("zones: " + zones + ", operTime: "+ operTime + ", freq: " +freq + ", gpm: " + gpm + ", daysInSeason: " + daysInseason);
-    console.log("gallonsUsedDaily is " + gallonsUsedDaily +", waterPrice: " + waterPrice + ", gallonsUsedPerSeason: " + gallonsUsedPerSeason + ", seasonalCost: " + seasonalCost);
-    //set calculator results
+   //set calculator results
     let monthlyCost = seasonalCost / monthsInASeason;
     $("#calculator-results-monthly-cost").text("$" + monthlyCost.toFixed(2));
     $("#calculator-results-seasonal-cost").text("$" + seasonalCost.toFixed(2));
@@ -80,7 +86,6 @@ function calculateWaterCost(event, callbackFunction){
     let ROIYears = 2600 / seasonalCost;
     let ROIValue = "between " + Math.floor(ROIYears) +" to "+ Math.ceil(ROIYears) + " years.";
     $("#calculator-results-ROI").text(ROIValue);
-    console.log("ROI in years is : " + ROIValue);
     callbackFunction();
 }
 
@@ -132,7 +137,6 @@ function smoothScroll(event){
         var time = Math.min(1, ((now - startTime) / duration));
         var timeFunction = easeInFunction(time);
         window.scroll(0, Math.ceil((timeFunction * (destinationOffsetToScroll - startPosition)) + startPosition));
-        console.log("current offset of window is: "+Math.ceil(window.pageYOffset) +"  destination is "+destinationOffsetToScroll + " now: " + now + ", timeout: " + timeout);
         //stop recursive calls when you reach your destination
         if (Math.ceil(window.pageYOffset) === destinationOffsetToScroll || now > timeout) {  return; }
         //recursive call
@@ -149,7 +153,6 @@ function easeInFunction(t){
 //This function handles closing modal boxes
 function handleClosingModalBoxes(event){
     $(event.target).closest(".modal-box").hide();
-    console.debug("trying to close modal box");
     //resume playing animation
     jssor_1_slider.$Play();
     //enable scrolling of body
@@ -157,7 +160,6 @@ function handleClosingModalBoxes(event){
 }
 
 function displayCalculatorResults(){
-    console.log("about to display calculator results");
     $("#calculator-results").show();
 }
 
@@ -168,4 +170,27 @@ function handleMoreInfoModal(e){
     jssor_1_slider.$Pause();
     //disable scrolling of body
     $("body").css("overflow", "hidden");
+}
+
+function handleSingleParallaxElement($currentElement, speed){
+    var parrentTop = $currentElement.parent().offset().top;
+    var parrentBottom = parrentTop + $currentElement.parent().height();
+
+    $(window).on('scroll', function() {
+        //Top and bottom in terms of Y coordinates of the document
+        var viewPortTop = $(window).scrollTop();
+        var viewPortBottom = viewPortTop + $(window).height();
+        var scrollOffset = viewPortTop - parrentTop;
+        var translateBy = Math.round(scrollOffset * speed);
+
+        //run only if element container is within the view port
+        if(viewPortTop <= parrentBottom && viewPortBottom >= parrentTop){
+            window.requestAnimationFrame(function() {            
+                $currentElement.css({    
+                    transform: 'translateY(' + translateBy + 'px)',      
+                 });
+             });
+        }
+        
+    });
 }

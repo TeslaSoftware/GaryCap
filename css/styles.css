@@ -100,6 +100,7 @@ header{
     color: var(--white);
     width: 100%;
     z-index: 9;
+    border-bottom: 3px solid var(--grey);
 }
 
 #hamburger-menu{
@@ -143,7 +144,6 @@ header{
     text-shadow: 3px 3px 6px var(--main-2); 
     font-family: 'Libre Baskerville', serif; 
     background-color: var(--main-1);
-    border-bottom: 3px solid var(--grey);
 }
 
 #brand-name{
@@ -187,13 +187,43 @@ nav a:hover{
     text-shadow: 0px 0px 2px  var(--white);
 }
 
-#section-frontyard-pic{
-    background-image: url("../assets/house2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    min-height: 20rem;
+section#section-services {    
+    background-color: var(--white);
 }
+
+#section-frontyard-pic, #section-waterwell-pic{
+    padding-left: 0;
+    padding-right: 0; 
+    position: relative;
+    height: 60vh;
+    background-color:transparent;
+}
+
+#section-frontyard-pic{
+    box-shadow: inset 0px -15px 4px -4px var(--white);
+}
+
+#parallax-image-frontyard, #parallax-image-pump{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#parallax-image-frontyard{
+    height: 100%;
+    background-image: url("../assets/Blue_Sky.jpg");
+    background-position: bottom 2rem left 40%; /* for default house image use bottom 0 left 75%;*/
+    box-shadow: inset 0px -15px 4px -4px var(--white);
+}
+
+#parallax-image-pump{
+    height: 110%;
+    background-image:url("../assets/pump4.jpg");
+    background-position: bottom 0 left 80%; 
+}
+
 
 .img-container{
     text-align: center;
@@ -211,6 +241,11 @@ nav a:hover{
 #img-area-map:hover{
     transform: scale(1.1);
     opacity: 0.9;
+}
+
+#section-wells-info{
+    box-shadow: 0px 0px 8px 4px var(--white);
+    background-color: var(--white);
 }
 
 .break-free{
@@ -253,6 +288,7 @@ nav a:hover{
 #section-calculator{
     background-color: var(--blue);
     color: var(--white);
+    box-shadow: 0px 0px 10px 4px var(--main-2);
 }
 
 #section-calculator>h2{
@@ -470,9 +506,13 @@ nav a:hover{
     display: inline-block;
 }
 
+section#section-credentials>h2 {
+    margin:2rem;
+}
+
 
 #credentials-slider{
-    margin: 2rem 0;
+    margin: 2rem 0 0 0;
     width: 100%;
     height: 100%;
 }
