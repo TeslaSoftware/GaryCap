@@ -25,7 +25,6 @@ $(document).ready(function(){
     $("#end-month").on("change", function(){ setEndMonth() });
     $("#form-water-calculator").submit( function(event){
         event.preventDefault();
-        console.log("Form Submitted! Time stamp: "+ event.timeStamp);
         calculateWaterCost(event, displayCalculatorResults);
     });
     $("#hamburger-menu").on("click",function(){toggleNav()});
@@ -102,10 +101,12 @@ function toggleNav(){
     if (nav.hasClass("showNav")){
         //hide nav
         nav.removeClass(showNavClass).addClass(hideNavClass);
+        $("#hamburger-menu").attr("aria-expanded","false");
     }
     else{
         //show nav
         nav.removeClass(hideNavClass).addClass(showNavClass);
+        $("#hamburger-menu").attr("aria-expanded","true");
     }
 }
 
@@ -152,7 +153,9 @@ function easeInFunction(t){
 
 //This function handles closing modal boxes
 function handleClosingModalBoxes(event){
-    $(event.target).closest(".modal-box").hide();
+    var targetModalBox = $(event.target).closest(".modal-box");
+    targetModalBox.hide();
+    targetModalBox.attr("aria-modal", "false")
     //resume playing animation
     jssor_1_slider.$Play();
     //enable scrolling of body
@@ -161,11 +164,13 @@ function handleClosingModalBoxes(event){
 
 function displayCalculatorResults(){
     $("#calculator-results").show();
+    $("#calculator-results").attr("aria-modal", "true");
 }
 
 function handleMoreInfoModal(e){
     var targetID = e.target.id.replace("btn","#modal");
     $(targetID).show();
+    $(targetID).attr("aria-modal", "true");
     //pause animation
     jssor_1_slider.$Pause();
     //disable scrolling of body

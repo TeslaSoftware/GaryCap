@@ -88,7 +88,6 @@ jssor_1_slider_init = function() {
 
             //scale the slider to expected size
             jssor_1_slider.$ScaleSize(expectedWidth, expectedHeight, MAX_BLEEDING);
-            console.log("scaled slider is : " + expectedWidth + " x " + expectedHeight);
             //position slider at center in vertical orientation
             //jssor_1_slider.$Elmt.style.top = ((containerHeight - expectedHeight) / 2) + "px";
 
@@ -119,7 +118,11 @@ function displayModalImage(slideIndex){
     var src = $(".slides-container img").eq(slideIndex).attr("src");
     var description = $(".slide-img-description").eq(slideIndex).text();
     //set it to modal box and show modal box
-    $("#img-modal-image").attr("src",src);
+    $("#img-modal-image").attr(
+      { "src":src,
+        "alt":"Image of " + description
+      }
+    );
     $("#modal-image-background .modal-image-footer").text(description);
     $("#modal-image-container").show();
     //pause animation
