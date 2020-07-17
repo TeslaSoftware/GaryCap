@@ -192,12 +192,18 @@ section{
     background-color: var(--white);
 }
 
+#section-services{
+    padding-bottom: 7rem;
+    box-shadow: 0 0 14px 9px rgba(0,0,0,0.5);
+}
+
 .services-container{
     max-width: 50rem;
     margin: auto;
+    
 }
 
-#section-frontyard-pic, #section-waterwell-pic{
+#section-frontyard-pic, #section-waterwell-pic, #section-grass-picture{
     padding-left: 0;
     padding-right: 0; 
     position: relative;
@@ -205,16 +211,37 @@ section{
     background-color:transparent;
 }
 
+#section-grass-picture{
+    padding: 0;    
+}
+
 #section-frontyard-pic{
     box-shadow: inset 0px -15px 4px -4px var(--white);
 }
 
-#parallax-image-frontyard, #parallax-image-pump{
+#parallax-image-frontyard, #parallax-image-pump, #parallax-image-grass{
     position: absolute;
     width: 100%;
     z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/*
+Temporary removed with all wells and pumps material
+
+#parallax-image-pump{
+    height: 110%;
+    background-image:url("../img/pump4.jpg");
+    background-position: bottom 0 left 80%; 
+}
+*/
+
+#parallax-image-grass{
+    height: 150%;
+    background-image:url("../img/grass.jpg");
+    background-position: bottom 0 left 80%; 
+    
 }
 
 #parallax-image-frontyard{
@@ -224,11 +251,6 @@ section{
     box-shadow: inset 0px -15px 4px -4px var(--white);
 }
 
-#parallax-image-pump{
-    height: 110%;
-    background-image:url("../img/pump4.jpg");
-    background-position: bottom 0 left 80%; 
-}
 
 
 .img-container{
@@ -547,7 +569,11 @@ section{
     display: inline-block;
 }
 
-section#section-credentials>h2 {
+#section-credentials{
+    box-shadow: 0 0 14px 9px rgba(0,0,0,0.5);
+}
+
+#section-credentials>h2 {
     margin:2rem;
 }
 

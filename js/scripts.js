@@ -43,8 +43,8 @@ $(document).ready(function(){
     jssor_1_slider_init();
 
     handleSingleParallaxElement($("#parallax-image-frontyard"), 0.5);
-    handleSingleParallaxElement($("#parallax-image-pump"), 0.3);
-    
+    //handleSingleParallaxElement($("#parallax-image-pump"), 0.3);
+    handleSingleParallaxElement($("#parallax-image-grass"), 0.5);
 });
 
 function setStartMonth(){
