@@ -227,15 +227,12 @@ section{
     background-repeat: no-repeat;
 }
 
-/*
-Temporary removed with all wells and pumps material
 
 #parallax-image-pump{
     height: 110%;
     background-image:url("../img/pump4.jpg");
     background-position: bottom 0 left 80%; 
 }
-*/
 
 #parallax-image-grass{
     height: 150%;

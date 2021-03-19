@@ -7,7 +7,7 @@ var hideNavClass = "hideNav" ;
 var showNavClass = "showNav" ;
 
 //prices for water as of 5/27/2019, price per 1000 gallons
-var nycWaterPrice = (10.10 / 748) *1000;
+var nycWaterPrice = (10.33 / 748) *1000;
 var nassauWaterPrice = 10;
 var headerHeight;
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
     jssor_1_slider_init();
 
     handleSingleParallaxElement($("#parallax-image-frontyard"), 0.5);
-    //handleSingleParallaxElement($("#parallax-image-pump"), 0.3);
+    handleSingleParallaxElement($("#parallax-image-pump"), 0.3);
     handleSingleParallaxElement($("#parallax-image-grass"), 0.5);
 });
 
