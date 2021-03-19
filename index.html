@@ -29,13 +29,15 @@
     
     <header>
         <div id="brand"> 
-            <button id="hamburger-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <button id="hamburger-menu" aria-expanded="false" aria-label="Mobile Menu"><i class="fas fa-bars"></i></button>
             <div id="brand-name">GCI</div> 
             <div id="motto">Irrigation Engineering</div>
         </div>
         <nav id="top-nav" class="hideNav">
             <ul>
                 <li><a href="#section-services">SERVICES</a></li>
+                <li><a href="#section-wells-info">WELLS & PUMPS</a></li>
+                <li><a href="#section-calculator">SAVINGS CALCULATOR</a></li>
                 <li><a href="#section-credentials">CREDENTIALS</a></li>
                 <li><a href="#section-contact">CONTACT US</a></li>
             </ul>
@@ -53,9 +55,14 @@
                     <p>Our services include: </p>
                     <ul>
                         <li>Lawn Sprinkler Design and Installation</li>
+                        <li>Well and Pump water supply systems</li>
                         <li>Complete Service and Maintenance</li>
                         <li>Seasonal Winterize Agreements</li>
                         <li>Residential and Commercial systems</li>
+                        <li>Outdoor Landscape Lighting</li>
+                        <li>Ponds and Water Features</li>
+                        <li>Aquaponic Greenhouse Construction and Services
+                        </li>
                     </ul>
                     <p>Please see below the service area for our services and if you have any questions feel free to call our office: 516-239-0694
                     </p>
@@ -65,9 +72,183 @@
                 </div>  
             </div>     
         </section>
-        <section id="section-grass-picture" aria-hidden="true">
-            <div id="parallax-image-grass"></div>
+
+        <section id="section-wells-info" aria-hidden="true">
+            <div class="section-container">
+                <h2>WELLS & PUMPS</h2>
+                <p>
+                    Do you know……
+                    <ul>
+                    <li>There is a clean, abundant source of water 30 feet below your property</li>
+                    <li>Metered water is currently costing you $6.00 per 1000 gallons in SW Nassau county.   $12.00 per 1000 gallons in  Queens (NYCDEP)</li>
+                    <li>An automatic lawn sprinkler consumes 60-75% of your summer usage.</li>
+                    <li>Systems can use thousands of gallons  each time they operate</li>
+                    </ul>    
+                    <span class="break-free"><b>BREAK FREE FROM YOUR WATER METER!</b></span><br>
+                    Install a well/pump system at your home or business. Simple connections to your existing sprinkler system included.
+                </p>
+                <p>
+                    Click on the buttons below to learn more about our technology:
+                </p>
+                <div class="more-info">
+                    <button id="btn-shallow-well">SHALLOW WELL INSTALLATION</button>
+                    <button id="btn-rust-prevention">RUST PREVENTION SYSTEMS</button>
+                </div>
+                <div id="modal-shallow-well" class="modal-box" aria-modal="false">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close-action" aria-label="Close">&#10006;</span>
+                            <h2>About your shallow well installation</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-img-container">
+                                <img src="img/pump3.jpg" class="modal-info-img" alt="Image of shallow well"/>
+                            </div>
+                            <p>Our non-invasive method of installing shallow irrigation wells allows placement just about anywhere in the customer yard. A preferred location is close to the tap on an existing system or by a source of electric/controller location for a new installation.
+                            A standard well consists of a stainless steel point and 1-1/2” PVC well pipe. We drop this to a depth that will yield the best volume of water. This is found at a level of coarse sand or small gravel.
+                            The pump will be a 1 HP Goulds GT series with a check  valve .
+                            This system will be able to supply 15-20 GPM at 30 PSI
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal-rust-prevention" class="modal-box" aria-modal="false">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close-action" aria-label="Close">&#10006;</span>
+                            <h2>About rust prevention systems</h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-img-container">
+                                <img src="img/pump4.jpg" class="modal-info-img" alt="Image of Rust Prevention System" />
+                            </div>
+                            <p>In areas of high iron (Fe) content in groundwater, RUST PREVENTION SYSTEMS can be installed to mitigate the orange rust stains seen on concrete and fences. A small container and special metering device will inject small quantities of an iron binding compound as the sprinkler system waters. This will bind or hold the iron in its dissolved form (ferrous) and not allow it to oxidize and precipitate out as (Ferric) which causes the rust stains. In most cases, a yearly refill of the compound will suffice for a season’s irrigation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-waterwell-pic" aria-hidden="true">
+            <div id="parallax-image-pump"></div>
                 
+        </section>
+
+        <section id="section-calculator">
+            
+            <div class="water-well-calculator-container">
+                <h2>WATER WELL PAYBACK CALCULATOR</h2>
+                <form id="form-water-calculator">
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="number-sprinkler-zones">How many sprinkler zones do you have?</label></div>
+                        <div class="calculator-column"><input type="number" id="number-sprinkler-zones" name="number_of_sprinkler_zones" min="1" max="100" value="4">        
+                        <span>zones</span></div>
+                    </div>
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="operation-time-spriklers">How long each sprinkler zone operates?</label></div>
+                        <div class="calculator-column"><input type="number" id="operation-time-spriklers" name="operation_time_of_each_zone)" min="1" max="200" value="20">
+                        <span>min</span></div>    
+                    </div>
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="how-often-water">How often do you water?</label></div>
+                        <div class="calculator-column"><select id="how-often-water" name="how_often_do_you_water" >
+                            <option value ="7">Every Day</option>
+                            <option value ="3.5">Every Other Day</option>
+                            <option value ="3" selected>Three Days a Week</option>
+                            <option value ="2">Two Days a Week</option>
+                            <option value ="1">Once a Week</option>
+                        </select></div>
+                    </div>
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="property-size">What is you property size?</label></div>
+                        <div class="calculator-column"><select id="property-size" name="property_size">
+                            <!--Value is in GPM - gallons per minute-->
+                            <option value ="10">Average Size Property</option>
+                            <option value ="20">Large Size Property</option>
+                        </select></div>
+                    </div>
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="start-month">Watering season </label></div>
+                        <div class="calculator-column">
+                            <select id="start-month">
+                                <option value="1">Janaury</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option selected value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select> 
+                        </div>
+                        <div class="calculator-column">
+                            <label for="end-month"> through </label>
+                        </div>
+                        <div class="calculator-column">
+                            <select id="end-month">
+                                <option value="1">Janaury</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option selected value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>    
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="calculator-row">
+                        <div class="calculator-column"><label for="water-supplier">Who is your water supplier ?</label></div>
+                        <div class="calculator-column"><select id="water-supplier" >
+                            <option value="nyc">NYC DEP (New York City)</option>
+                            <option value="nassau">New York American Water (Long Island)</option>
+                        </select></div>
+                    </div>
+                    <div class="calculator-row" >
+                        <button type="submit" aria-label="Press to calculate my savings">CALCULATE MY SAVINGS!</button>
+                    </div>
+                </form>
+            </div>
+            <div id="calculator-results" class="modal-box" aria-modal="false">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close-action" aria-label="Close">&#10006;</span>
+                        <h2>Results of Calculation</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="calculator-results-row">Your current water cost <span class="modal-body-small-font">(for lawn sprinkler system only)</span>: </div>
+                        <div class="calculator-results-row">
+                            <div class="calculator-results-key">Your monthly cost is: </div>
+                            <div id="calculator-results-monthly-cost" class ="calculator-results-value"></div>
+                        </div>    
+                        <div class="calculator-results-row">
+                            <div class="calculator-results-key">Your seasonal cost is: </div>
+                            <div id="calculator-results-seasonal-cost" class ="calculator-results-value"></div>
+                        </div>   
+                        <div class="calculator-results-row">
+                            <div class="calculator-results-key">Your return of investment in water well is approximately </div>
+                            <div id="calculator-results-ROI" class ="calculator-results-value"></div>
+                        </div>         
+                        <div class="calculator-results-row container-center">  
+                            <div class="modal-box-button-outer-div" >                      
+                                <a href="tel:5162390694" role="button" aria-label="Click to call for a free quote: 516 239 0694">
+                                    <div class="modal-box-button-inner-div"><i class="fas fa-phone" aria-hidden="true"></i> Click to call for a free quote!
+                                    </div>
+                                </a>  
+                            </div>                      
+                        </div>      
+                    </div>     
+                </div>       
+            </div>
         </section>
 
         <section id="section-credentials">
@@ -79,25 +260,33 @@
                         <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" alt="Image of spinnig element"/>
                     </div>
                     <div class="slides-container" data-u="slides" >
-                        <div data-fillmode="1">
+                        <div data-fillmode="1" aria-roledescription="slide">
                             <img data-u="image" data-src2="img/aquaculture_1998.jpg" alt="Image of Aquaculture Center Invoice 1998" />
                             <div class="slide-img-description" u="thumb">Aquaculture Center Invoice 1998</div>
                         </div>
-                        <div data-fillmode="1">
+                        <div data-fillmode="1" aria-roledescription="slide">
                             <img data-u="image" data-src2="img/aquaculture_1998_certificate.jpg" alt="Image of Aquaculture Certificate 1998" />
                             <div class="slide-img-description" u="thumb">Aquaculture Certificate 1998</div>
                         </div>
-                        <div data-fillmode="1">
+                        <div data-fillmode="1" aria-roledescription="slide">
                             <img data-u="image" data-src2="img/hydroponic_1998.jpg" alt="Image of Certificate - Crop King Hydroponic Grower - 1998" />
                             <div class="slide-img-description" u="thumb">Certificate - Crop King Hydroponic Grower - 1998</div>
                         </div>
-                        <div data-fillmode="1">
+                        <div data-fillmode="1" aria-roledescription="slide">
+                            <img data-u="image" data-src2="img/registration_2015.jpg" alt="Image of New York State Registration" />
+                            <div class="slide-img-description" u="thumb">NYS Registration</div>
+                        </div>
+                        <div data-fillmode="1" aria-roledescription="slide">
+                            <img data-u="image" data-src2="img/sign.jpg" alt="Image of New York State Registration Sticker" />
+                            <div class="slide-img-description" u="thumb">NYS Registration Sticker</div>
+                        </div>
+                        <div data-fillmode="1" aria-roledescription="slide">
                             <img data-u="image" data-src2="img/the_irrigation_association_1996.jpg" alt="Image of Certificate of Irrigation Contractor" />
                             <div class="slide-img-description" u="thumb">Certificate of Irrigation Contractor</div>
                         </div>
                     </div>
                     <!-- Thumbnail Navigator -->
-                    <div class="thumb-nav" u="thumbnavigator">
+                    <div class="thumb-nav" u="thumbnavigator" aria-hidden="true">
                         <div u="slides">
                             <div u="prototype" style="position:absolute;top:0;left:0;width:600px;height:50px;">
                                 <div class="jssor-thumbnailtemplate" u="thumbnailtemplate" ></div>
@@ -131,7 +320,9 @@
             <div class="section-container">
                 <h2>ABOUT US</h2>
                 <p>Gary Caparelli has professionally designed, installed and serviced hundreds of lawn sprinkler systems for discerning clients in many of Long Island"s Finest communities. He was among the first on Long Island to obtain professional credentials as a Certified Irrigation Contractor (CIC) from the National Irrigation Association. His expertise in the field ranges from residential and commercial installations to major golf course systems for New York City Department of Parks and Recreation.
-                    
+                    In 1989, Gary developed a method for installing shallow irrigation wells along the South Shore to supply inexpensive ground water for lawn sprinkler systems. Currently, the company has expanded its operation to include Outdoor Landscape Lighting, Residential Ponds, Water Features, and a first on Long Island, Aquaponic Greenhouse Construction, for growing fresh, organic fruits and vegetables in your backyard.
+                
+                Irrigation and Well/pump systems remain our main focus, but we are proud to offer these other innovative services to all our clients.
                 </p>
             </div>
         </section>
